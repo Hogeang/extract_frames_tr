@@ -1,6 +1,8 @@
 import sys, os, subprocess, shutil
 import numpy
-
+"""
+STEP1 : python pupil_lab_sync world.mp4 world_timestamps.npy world_out_file world_out_timestamps
+"""
 def main():
     video_filename = sys.argv[1]
     timestamps_filename = sys.argv[2]

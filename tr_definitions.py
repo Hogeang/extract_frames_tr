@@ -1,7 +1,11 @@
 import os, datetime
 
 config_name = "config.ini"
-
+"""
+Progress: Create backup folder with input string(foldername). If there is already exists folder which has identical name, append "_bak" and number. 
+Input: foldername - Backup folder's name. If this parameter is empty, nothing to do in this function.
+Output: New backup folder is created at current directory.
+"""
 def make_folder_bak(foldername):
     if os.path.exists(foldername) == False:
         os.makedirs(foldername)

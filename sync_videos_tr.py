@@ -1,5 +1,14 @@
 import ConfigParser, datetime, os, subprocess, sys, tr_definitions, shutil, glob
-
+"""
+step 1: Read config.ini. Syncpoints has attributes of sycvideos of config.ini(Type is dictionary).
+step 2: Distinguish syncpoints element. There is 4 ways to distinguish.
+step 2-1 : if attribute[0] is 1,2,3 than it means camID and attribute[1] is timestamps.
+step 2-2 : if attribute[0] is 'refID' than attribute[1] is camID to syc.?
+step 2-3 : if attribute[0] is 'begin' than attribute[1] is camID to begin frame.?
+step 2-4 : if attribute[0] is 'begin' than attribute[1] is camID to end frame.?
+step 3 : if there is any parameter program run with, the parameter(tosync) is used to step 10.
+step 4 : WHAT'S THE NOTATION_TO_MS
+"""
 def main():
     config = ConfigParser.ConfigParser()
     config.read(tr_definitions.config_name)
