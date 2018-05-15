@@ -1,7 +1,11 @@
 import sys, os, subprocess, shutil
 import numpy
 """
-STEP1 : python pupil_lab_sync world.mp4 world_timestamps.npy world_out_file world_out_timestamps
+STEP1 : python pupil_lab_sync (world.mp4 , world_timestamps.npy , world_out_dir , world_out_timestamps)
+STEP2 : Check world_out_dir.tmp1, world_out_dir.tmp2 are exist. If no, make directory with tmp1, tmp2.
+STEP3 : Save screenshots from world.mp4 in directory tmp1.
+STEP4 : Read timestamp file with numpy. Rearange the data with \n and save output file.
+STEP5 : Subtract first element from all of element. Frist element is standard of the timestamps.
 """
 def main():
     video_filename = sys.argv[1]
