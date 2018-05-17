@@ -7,7 +7,7 @@ step 2-2 : if attribute[0] is 'refID' than attribute[1] is camID to syc.?
 step 2-3 : if attribute[0] is 'begin' than attribute[1] is camID to begin frame.?
 step 2-4 : if attribute[0] is 'begin' than attribute[1] is camID to end frame.?
 step 3 : if there is any parameter program run with, the parameter(tosync) is used to step 10.
-step 4 : WHAT'S THE NOTATION_TO_MS
+step 4 : WHAT'S THE NOTATION_TO_MS? There is no definition.
 """
 def main():
     config = ConfigParser.ConfigParser()
