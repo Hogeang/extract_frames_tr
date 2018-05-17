@@ -1,7 +1,10 @@
 import sys, os, subprocess, shutil
 import numpy
+import itertools
 """
-STEP1 : python pupil_lab_sync world.mp4 world_timestamps.npy world_out_file world_out_timestamps
+STEP-T : python pupil_lab_sync.py world.mp4 world_timestamps.npy world_out.mp4 world_timestamps.txt
+STEP-1 : python pupil_lab_sync.py eye0.mp4 eye0_timestamps.npy eye0_out.mp4 eye0_timestamps.txt
+STEP-2 : python pupil_lab_sync.py eye1.mp4 eye1_timestamps.npy eye1_out.mp4 eye1_timestamps.txt
 """
 def main():
     video_filename = sys.argv[1]
@@ -22,9 +25,12 @@ def main():
     tmp2 = output_filename + ".tmp2"
     if not os.path.exists(tmp2):
         os.mkdir(tmp2)
-        
-    timestamps = numpy.fromfile(timestamps_filename, dtype='>f8')
+
+    timestamps = numpy.fromfile(timestamps_filename, dtype='<f8')
     timestamps.tofile(output_timestamps_filename, "\n", "%s")
+    index = numpy.arange(10)
+    timestamps = numpy.array(list(itertools.compress(timestamps, [i not in index for i in range(len(timestamps))])))
+    print("first element..",timestamps[0])
     timestamps = timestamps - timestamps[0]
     curr_time = 0.0
     curr_image = 1
